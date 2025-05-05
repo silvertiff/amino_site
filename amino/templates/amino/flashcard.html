@@ -1,0 +1,16 @@
+{% extends 'amino/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="flashcard-container">
+    {% if show_back %}
+    <p><strong>{{ acid.name }}</strong></p>
+    <img src="{% static 'amino/structures/' %}{{ acid.structure_image }}" width="150" alt="{{ acid.name }}">
+    <p>Код: {{ acid.three_letter_code }} ({{ acid.one_letter_code }})</p>
+    <a href="{% url 'flashcard' %}">Следующая</a>
+    {% else %}
+    <p><strong>{{ acid.name }}</strong></p>
+    <a href="{% url 'flashcard' %}?acid_id={{ acid.id }}&show_back=1">Перевернуть карточку</a>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'amino/base.html' %}
+{% load static %}
+
+{% block content %}
+<h2>Квиз по аминокислотам</h2>
+<form method="post" style="margin-bottom: 20px;">
+    {% csrf_token %}
+    <input type="hidden" name="acid_id" value="{{ acid.id }}">
+    <input type="hidden" name="question_type" value="{{ question_type }}">
+    {% if question_type == 'name' %}
+        <p>Какой трёхбуквенный или однобуквенный код у аминокислоты <strong>{{ acid.name }}</strong>?</p>
+    {% else %}
+        <p>Как называется аминокислота с такой структурой?</p>
+        <img src="{% static 'amino/structures/' %}{{ acid.structure_image }}" width="150" alt="Структура аминокислоты">
+    {% endif %}
+    {{ form.as_p }}
+    <button type="submit" class="quiz-btn">Проверить</button>
+</form>
+<p>
+    <a href="{% url 'acid_list' %}" class="home-link">← Вернуться на главную страницу</a>
+</p>
+{% endblock %}

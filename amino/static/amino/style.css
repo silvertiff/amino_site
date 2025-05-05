@@ -1,0 +1,81 @@
+body {
+    background: linear-gradient(135deg, #e0f7fa 0%, #80d8ff 100%);
+    color: #01579b;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #0288d1;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav a {
+    margin: 0 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+th,
+td {
+    border: 1px solid #b3e5fc;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background: #4fc3f7;
+    color: #fff;
+}
+
+button {
+    background: #0288d1;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+
+.flashcard-container {
+    display: flex;
+    flex-direction: column;
+    /* расположить подпись под картинкой */
+    align-items: center;
+    /* центрируем по горизонтали */
+    justify-content: center;
+    /* центрируем по вертикали */
+    min-height: 60vh;
+    /* чтобы контейнер занимал часть высоты экрана */
+    text-align: center;
+    /* текст по центру */
+    margin: 0 auto;
+    /* центрирование контейнера */
+}
+
+.flashcard-container img {
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.btn-flip {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 16px;
+    background-color: #0288d1;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-flip:hover {
+    background-color: #01579b;
+}

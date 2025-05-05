@@ -1,0 +1,27 @@
+{% extends 'amino/base.html' %}
+{% load static %}
+
+{% block content %}
+<h2>Результат квиза</h2>
+{% if question_type == 'name' %}
+<p>Вопрос: <strong>{{ acid.name }}</strong></p>
+{% if correct %}
+<p style="color: green;">Верно! Код: {{ acid.three_letter_code }} ({{ acid.one_letter_code }})</p>
+{% else %}
+<p style="color: red;">Неверно. Правильный код: {{ acid.three_letter_code }} ({{ acid.one_letter_code }})</p>
+<p>Ваш ответ: {{ answer }}</p>
+{% endif %}
+{% else %}
+<p>Вопрос: <img src="{% static 'amino/structures/' %}{{ acid.structure_image }}" width="150" alt="Структура"></p>
+{% if correct %}
+<p style="color: green;">Верно! Это {{ acid.name }}.</p>
+{% else %}
+<p style="color: red;">Неверно. Это {{ acid.name }}.</p>
+<p>Ваш ответ: {{ answer }}</p>
+{% endif %}
+{% endif %}
+<p>
+    <a href="{% url 'quiz' %}">Следующий вопрос</a> |
+    <a href="{% url 'acid_list' %}">На главную</a>
+</p>
+{% endblock %}

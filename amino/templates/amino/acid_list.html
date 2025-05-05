@@ -1,0 +1,28 @@
+{% extends 'amino/base.html' %}
+{% load static %}
+{% block content %}
+<h2>Список аминокислот</h2>
+<table>
+    <tr>
+        <th>Название</th>
+        <th>Трёхбуквенный код</th>
+        <th>Однобуквенный код</th>
+        <th>Структура</th>
+    </tr>
+    {% for acid in acids %}
+    <tr>
+        <td>{{ acid.name }}</td>
+        <td>{{ acid.three_letter_code }}</td>
+        <td>{{ acid.one_letter_code }}</td>
+        <td><img src="{% static 'amino/structures/' %}{{ acid.structure_image }}" alt="{{ acid.name }}" width="80"></td>
+    </tr>
+    {% endfor %}
+</table>
+
+<p style="font-size: small; color: gray; margin-top: 20px;">
+    Изображения взяты с сайта
+    <a href="https://ru.wikipedia.org/wiki/Аминокислоты" target="_blank" rel="noopener noreferrer">
+        Википедия
+    </a>.
+</p>
+{% endblock %}
